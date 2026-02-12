@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=IBM+Plex+Sans:wght@500;700&display=swap");
 
 @import "../fonts/tabler-icons/tabler-icons.css";
-@import url("datatables.net-dt");
+/* @import url("datatables.net-dt");
 @import url("datatables.net-autofill-dt");
 @import url("datatables.net-buttons-dt");
 @import url("datatables.net-colreorder-dt");
@@ -19,7 +19,7 @@
 @import url("datatables.net-searchbuilder-dt");
 @import url("datatables.net-searchpanes-dt");
 @import url("datatables.net-select-dt");
-@import url("datatables.net-staterestore-dt");
+@import url("datatables.net-staterestore-dt"); */
 
 :root {
 	--primary: #ffffff;

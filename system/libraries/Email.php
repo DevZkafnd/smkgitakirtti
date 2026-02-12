@@ -683,10 +683,12 @@ class CI_Email {
 		   NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
 			 it will probably not exist in future versions at all.
 		*/
+		/*
 		if ( ! is_php('5.4') && get_magic_quotes_gpc())
 		{
 			$this->_body = stripslashes($this->_body);
 		}
+		*/
 
 		return $this;
 	}

@@ -150,13 +150,15 @@ let menu, animate;
 	window.Helpers.setCollapsed(true, false);
 })();
 
-DataTable.Buttons.jszip(jszip);
-DataTable.Buttons.pdfMake(pdfmake);
+// DataTable.Buttons.jszip(jszip);
+// DataTable.Buttons.pdfMake(pdfmake);
 
-new DataTable("#data-table", {
-	layout: {
-		topStart: {
-			buttons: ["copy", "csv", "excel", "pdf", "print"],
-		},
-	},
-});
+if (document.getElementById("data-table")) {
+    new DataTable("#data-table", {
+        layout: {
+            topStart: {
+                buttons: ["copy", "csv", "excel", "pdf", "print"],
+            },
+        },
+    });
+}

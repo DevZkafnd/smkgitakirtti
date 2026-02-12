@@ -556,6 +556,9 @@ class CI_Input {
 					// Split the netmask length off the network address
 					sscanf($proxy_ips[$i], '%[^/]/%d', $netaddr, $masklen);
 
+					// Ensure masklen is an integer to avoid PHP 8 error
+					$masklen = (int) $masklen;
+
 					// Again, an IPv6 address is most likely in a compressed form
 					if ($separator === ':')
 					{
@@ -725,10 +728,12 @@ class CI_Input {
 		   NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
 		         it will probably not exist in future versions at all.
 		*/
-		if ( ! is_php('5.4') && get_magic_quotes_gpc())
+		/*
+		if ( ! is_php('5.4') && function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc())
 		{
 			$str = stripslashes($str);
 		}
+		*/
 
 		// Clean UTF-8 if supported
 		if (UTF8_ENABLED === TRUE)
