@@ -293,7 +293,7 @@ class CI_Email {
 	 * Debug messages
 	 *
 	 * @see	CI_Email::print_debugger()
-	 * @var	string
+	 * @var	array
 	 */
 	protected $_debug_msg		= array();
 
@@ -572,6 +572,11 @@ class CI_Email {
 		$to = $this->_str_to_array($to);
 		$to = $this->clean_email($to);
 
+		if ( ! is_array($to))
+		{
+			$to = (array) $to;
+		}
+
 		if ($this->validate)
 		{
 			$this->validate_email($to);
@@ -598,6 +603,11 @@ class CI_Email {
 	public function cc($cc)
 	{
 		$cc = $this->clean_email($this->_str_to_array($cc));
+
+		if ( ! is_array($cc))
+		{
+			$cc = (array) $cc;
+		}
 
 		if ($this->validate)
 		{
@@ -636,6 +646,11 @@ class CI_Email {
 		if ($this->validate)
 		{
 			$this->validate_email($bcc);
+		}
+
+		if ( ! is_array($bcc))
+		{
+			$bcc = (array) $bcc;
 		}
 
 		if ($this->_get_protocol() === 'smtp' OR ($this->bcc_batch_mode && count($bcc) > $this->bcc_batch_size))
@@ -1770,6 +1785,11 @@ class CI_Email {
 
 			$bcc = $this->clean_email($this->_str_to_array($chunk[$i]));
 
+			if ( ! is_array($bcc))
+			{
+				$bcc = (array) $bcc;
+			}
+
 			if ($this->protocol !== 'smtp')
 			{
 				$this->set_header('Bcc', implode(', ', $bcc));
@@ -1885,9 +1905,10 @@ class CI_Email {
 	 */
 	protected function _send_with_mail()
 	{
-		if (is_array($this->_recipients))
+		$recipients = $this->_recipients;
+		if (is_array($recipients))
 		{
-			$this->_recipients = implode(', ', $this->_recipients);
+			$recipients = implode(', ', $recipients);
 		}
 
 		// _validate_email_for_shell() below accepts by reference,
@@ -1896,13 +1917,13 @@ class CI_Email {
 
 		if ($this->_safe_mode === TRUE || ! $this->_validate_email_for_shell($from))
 		{
-			return mail($this->_recipients, $this->_subject, $this->_finalbody, $this->_header_str);
+			return mail($recipients, $this->_subject, $this->_finalbody, $this->_header_str);
 		}
 		else
 		{
 			// most documentation of sendmail using the "-f" flag lacks a space after it, however
 			// we've encountered servers that seem to require it to be in place.
-			return mail($this->_recipients, $this->_subject, $this->_finalbody, $this->_header_str, '-f '.$from);
+			return mail($recipients, $this->_subject, $this->_finalbody, $this->_header_str, '-f '.$from);
 		}
 	}
 
