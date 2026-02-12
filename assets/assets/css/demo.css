@@ -1,0 +1,319 @@
+/*
+* demo.css
+* File include item demo only specific css only
+******************************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=IBM+Plex+Sans:wght@500;700&display=swap");
+
+@import "../fonts/tabler-icons/tabler-icons.css";
+@import url("datatables.net-dt");
+@import url("datatables.net-autofill-dt");
+@import url("datatables.net-buttons-dt");
+@import url("datatables.net-colreorder-dt");
+@import url("datatables.net-fixedcolumns-dt");
+@import url("datatables.net-fixedheader-dt");
+@import url("datatables.net-keytable-dt");
+@import url("datatables.net-responsive-dt");
+@import url("datatables.net-rowgroup-dt");
+@import url("datatables.net-rowreorder-dt");
+@import url("datatables.net-scroller-dt");
+@import url("datatables.net-searchbuilder-dt");
+@import url("datatables.net-searchpanes-dt");
+@import url("datatables.net-select-dt");
+@import url("datatables.net-staterestore-dt");
+
+:root {
+	--primary: #ffffff;
+
+	--text: #272727;
+
+	--accent: #5057fd;
+
+	--accent-light: #eff3ff;
+}
+
+#hide {
+	font-size: 13.75px;
+	cursor: pointer;
+}
+
+.menu .app-brand.demo {
+	height: 64px;
+	margin-top: 12px;
+}
+
+.app-brand-text.demo {
+	font-size: 1.75rem;
+	letter-spacing: -0.25px;
+	text-transform: capitalize;
+	font-weight: 600;
+	font-family: "Poppins", sans-serif;
+}
+
+.app-brand-text-login.demo {
+	font-size: 1rem;
+	letter-spacing: -0.25px;
+	text-transform: capitalize;
+	font-weight: 600;
+	font-family: "Poppins", sans-serif;
+}
+
+.app-brand-link {
+	gap: 10px;
+}
+
+/* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
+/* Detached navbar */
+.layout-navbar-fixed
+	.layout-wrapper:not(.layout-horizontal):not(.layout-without-menu)
+	.layout-page {
+	padding-top: 76px !important;
+}
+/* Default navbar */
+.layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
+	padding-top: 64px !important;
+}
+
+/* Navbar page z-index issue solution */
+.content-wrapper .navbar {
+	z-index: auto;
+}
+
+/*
+* Content
+******************************************************************************/
+
+.demo-blocks > * {
+	display: block !important;
+}
+
+.demo-inline-spacing > * {
+	margin: 1rem 0.375rem 0 0 !important;
+}
+
+/* ? .demo-vertical-spacing class is used to have vertical margins between elements. To remove margin-top from the first-child, use .demo-only-element class with .demo-vertical-spacing class. For example, we have used this class in forms-input-groups.html file. */
+.demo-vertical-spacing > * {
+	margin-top: 1rem !important;
+	margin-bottom: 0 !important;
+}
+.demo-vertical-spacing.demo-only-element > :first-child {
+	margin-top: 0 !important;
+}
+
+.demo-vertical-spacing-lg > * {
+	margin-top: 1.875rem !important;
+	margin-bottom: 0 !important;
+}
+.demo-vertical-spacing-lg.demo-only-element > :first-child {
+	margin-top: 0 !important;
+}
+
+.demo-vertical-spacing-xl > * {
+	margin-top: 5rem !important;
+	margin-bottom: 0 !important;
+}
+.demo-vertical-spacing-xl.demo-only-element > :first-child {
+	margin-top: 0 !important;
+}
+
+.rtl-only {
+	display: none !important;
+	text-align: left !important;
+	direction: ltr !important;
+}
+
+[dir="rtl"] .rtl-only {
+	display: block !important;
+}
+
+/*
+* Layout demo
+******************************************************************************/
+
+.layout-demo-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	margin-top: 1rem;
+}
+.layout-demo-placeholder img {
+	width: 900px;
+}
+.layout-demo-info {
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 22.5px;
+	color: #fff;
+	font-size: 20px;
+}
+
+.avatars {
+	background-color: #696cff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 10px;
+	color: #fff;
+	font-size: 22.5px;
+	border-radius: 10px;
+}
+
+.riwayat-absen {
+	color: #0d314a;
+}
+
+.latest-announcement {
+	overflow-y: auto;
+	height: auto;
+	scrollbar-width: none;
+}
+
+.header-pengumuman .p-icon {
+	justify-content: space-between;
+	color: #0d314a;
+}
+
+.pengumuman {
+	color: #0d314a;
+	margin-bottom: -20px;
+}
+
+.judul-pengumuman {
+	max-width: 459px;
+	width: 100%;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #0d314a;
+	cursor: pointer;
+}
+
+.isi-pengumuman {
+	max-width: 459px;
+	width: 100%;
+	font-size: 0.85rem;
+	color: #0d314a;
+	cursor: pointer;
+}
+
+.pembuat {
+	color: #8d9da9;
+	font-size: 0.65rem;
+}
+
+.pengumuman-lainnya,
+.pengumuman-lainnya:visited {
+	color: #696cff;
+	border: 1px solid #696cff;
+	max-width: 459px;
+	width: 100%;
+	transition: 0.3s ease;
+
+	&:hover {
+		color: #fff;
+		background-color: #696cff;
+	}
+}
+
+.absen-btn {
+	color: #fff;
+	background-color: #696cff;
+	border: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.5rem;
+}
+
+.absen-btn:hover {
+	transform: scale(0.98);
+}
+
+.pricing-card {
+	background-color: #ffffff;
+	padding: 15px;
+	border-radius: 7.5px;
+	max-width: 588px;
+	width: 100%;
+}
+.pricing-card .judul {
+	display: flex;
+	margin-top: 16.5px;
+	justify-content: center;
+	line-height: 0.5px;
+	text-align: center;
+	align-items: center;
+	font-family: "Merriweather", serif;
+	font-weight: 900;
+	font-size: 22.5px;
+	color: #5057fd;
+}
+.pricing-card .details div {
+	display: flex;
+	justify-content: space-around;
+	font-weight: 700;
+	font-size: 16px;
+	flex-direction: column;
+}
+.pricing-card .details div .time {
+	margin-top: 10px;
+	font-size: 22px;
+	font-weight: 500;
+}
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	border: none;
+	gap: 15px;
+	margin: 50px auto;
+}
+.buttons button {
+	font-family: "IBM Plex Sans", sans-serif;
+	font-weight: 500;
+	cursor: pointer;
+	border: none;
+	max-width: 204px;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 18px;
+	transition: 0.3s ease;
+}
+.buttons .button.register {
+	background-color: #0f0e2f;
+	color: #fff;
+}
+.buttons .button.register:hover {
+	background-color: #1c1a56;
+}
+.buttons .button.calendar {
+	background-color: transparent;
+	border: 1px solid #0f0e2f;
+	color: #0f0e2f;
+}
+.buttons .button.calendar .c-icon {
+	margin-right: 8px;
+	font-size: 20px;
+}
+.buttons .button.calendar:hover {
+	background-color: #cbcbf5;
+}
+
+.btn-aksi {
+	padding: 5px;
+	font-size: 0px;
+}
